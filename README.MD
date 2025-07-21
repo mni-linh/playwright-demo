@@ -29,7 +29,7 @@
 
 > 💡 Ghi chú: Mặc dù có thể sử dụng giao diện GitHub Desktop để thực hiện các thao tác như push/pull một cách trực quan, mình khuyến khích sử dụng dòng lệnh Git để làm quen với thao tác cơ bản và hiểu rõ hơn về luồng làm việc với Git.
 
-> 👉 Các lệnh Git quan trọng sẽ được giới thiệu chi tiết ở phần [8. Các lệnh git cơ bản](#-8-các-lệnh-git-cơ-bản).
+> 👉 Các lệnh Git quan trọng sẽ được giới thiệu chi tiết ở phần [9. Các lệnh git cơ bản](#9-các-lệnh-git-cơ-bản).
 
 ### 1.1. CÀI ĐẶT NODE.JS (LTS)
 
@@ -97,7 +97,7 @@ git version 2.43.0.windows.1
 
 > 💡 Ghi chú: Mặc dù có thể sử dụng giao diện GitHub Desktop để thực hiện các thao tác như push/pull một cách trực quan, mình khuyến khích sử dụng dòng lệnh Git để làm quen với thao tác cơ bản và hiểu rõ hơn về luồng làm việc với Git.
 
-> 👉 Các lệnh Git quan trọng sẽ được giới thiệu chi tiết ở phần [8. Các lệnh git cơ bản](#-8-các-lệnh-git-cơ-bản)
+> 👉 Các lệnh Git quan trọng sẽ được giới thiệu chi tiết ở phần [9. Các lệnh git cơ bản](#9-các-lệnh-git-cơ-bản)
 
 B1: Truy cập: [https://desktop.github.com/](https://desktop.github.com/)
 
@@ -171,7 +171,7 @@ git remote add origin https://github.com/YOUR-USERNAME/REPO-NAME.git
 git push -u origin main
 ```
 
-> 📜 _Lưu ý: Nếu bạn sử dụng GitHub Desktop, bạn có thể dễ dàng "Publish repository" trực tiếp từ ứng dụng. Tuy nhiên, mình vẫn khuyến khích làm quen với thao tác bằng dòng lệnh Git – đây là kỹ năng quan trọng sẽ được giới thiệu trong phần [8. Các lệnh git cơ bản](#-8-các-lệnh-git-cơ-bản). Vì vậy, phần này sẽ không đi sâu hướng dẫn bằng giao diện GitHub Desktop._
+> 📜 _Lưu ý: Nếu bạn sử dụng GitHub Desktop, bạn có thể dễ dàng "Publish repository" trực tiếp từ ứng dụng. Tuy nhiên, mình vẫn khuyến khích làm quen với thao tác bằng dòng lệnh Git – đây là kỹ năng quan trọng sẽ được giới thiệu trong phần [9. Các lệnh git cơ bản](#9-các-lệnh-git-cơ-bản). Vì vậy, phần này sẽ không đi sâu hướng dẫn bằng giao diện GitHub Desktop._
 
 ## 5. GIẢI THÍCH CẤU TRÚC DỰ ÁN
 
