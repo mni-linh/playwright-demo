@@ -239,17 +239,127 @@ export default defineConfig({
 
 ## 7. CHẠY SOURCE CODE
 
+**1. Chạy toàn bộ test:**
+
 ```bash
 npx playwright test
 ```
 
-Hoặc chạy từng file:
+**2. Chạy từng file:**
 
 ```bash
 npx playwright test tests/example.spec.ts
 ```
 
----
+**3. Chạy 1 test case cụ thể trong file (dùng -g hoặc --grep)**
+
+```bash
+npx playwright test -g "Đăng nhập thất bại"
+```
+
+💡Với -g là viết tắt của --grep, lọc theo tên test case (có thể dùng regex).
+
+**4. Chạy theo folder**
+
+Giả sử bạn có test theo module như:
+
+```pgsql
+Tests/
+├── auth/
+│   └── login.spec.js
+├── dashboard/
+│   └── overview.spec.js
+```
+
+Bạn có thể chạy tất cả test trong thư mục auth/ bằng:
+
+```bash
+npx playwright test Tests/auth
+```
+
+**5. Chạy với UI (debug + xem element dễ hơn)**
+
+```bash
+npx playwright test --ui
+```
+
+💡Hiện lên giao diện Playwright Test Runner, cho phép bạn click chạy từng test.
+
+**6. Chạy với --debug (tạm dừng, inspect từng bước)**
+
+```bash
+npx playwright test --debug
+```
+
+💡Vào chế độ debug: dừng ở mỗi step, mở browser không headless, xem locator.\_
+
+**7. Chạy và quay video / chụp ảnh màn hình**
+Trong `playwright.config.js`, thêm config như:
+
+```bash
+use: {
+  headless: false,
+  video: 'on',             // hoặc 'retain-on-failure'
+  screenshot: 'only-on-failure',
+}
+```
+
+Sau đó chạy:
+
+```bash
+npx playwright test
+```
+
+Video sẽ nằm trong `test-results/`
+
+**8. Xem báo cáo test (HTML report)**
+
+a. Sau khi chạy xong:
+
+```bash
+npx playwright show-report
+```
+
+→ Mở báo cáo ở trình duyệt.
+
+b. Tạo báo cáo bằng lệnh riêng (nếu đã có kết quả test):
+
+```bash
+npx playwright show-report --reporter=html
+```
+
+💡Report sẽ lấy từ thư mục .playwright/report hoặc playwright-report (tùy phiên bản)
+
+**9. Thêm config tùy chỉnh trong playwright.config.js**
+Ví dụ:
+
+```js
+// playwright.config.js
+const { defineConfig } = require("@playwright/test")
+
+module.exports = defineConfig({
+  timeout: 30000,
+  retries: 1,
+  reporter: [["list"], ["html"]],
+  use: {
+    headless: true,
+    viewport: { width: 1280, height: 720 },
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
+  },
+})
+```
+
+**10. Chạy test bằng npm script (tạo sẵn trong package.json)**
+
+```json
+"scripts": {
+  "test": "npx playwright test",
+  "ui": "npx playwright test --ui",
+  "debug": "npx playwright test --debug",
+  "report": "npx playwright show-report"
+}
+```
 
 ## 8. VIẾT TEST CASE MẪU
 
@@ -268,6 +378,15 @@ Chạy test:
 
 ```bash
 npx playwright test
+```
+
+Sau đó bạn chỉ cần chạy:
+
+```bash
+npm run test
+npm run ui
+npm run debug
+npm run report
 ```
 
 ## 9. CÁC LỆNH GIT CƠ BẢN
@@ -298,4 +417,4 @@ git switch main          # Chuyển về nhánh chính
 >
 > - Nếu muốn tìm hiểu thêm, bạn có thể tham khảo tài liệu chính thức tại:
 >   [Git official page](https://git-scm.com/docs)
-> hoặc tài liệu tham khảo dễ hiểu hơn ở  [Bỏ túi 21 lệnh Git cơ bản - Fullstack.edu.vn](https://fullstack.edu.vn/blog/bo-tui-21-lenh-git-co-ban-cach-nho-giup-newdev-lam-chu-git-quan-ly-tot-ma-ngu)
+>   hoặc tài liệu tham khảo dễ hiểu hơn ở [Bỏ túi 21 lệnh Git cơ bản - Fullstack.edu.vn](https://fullstack.edu.vn/blog/bo-tui-21-lenh-git-co-ban-cach-nho-giup-newdev-lam-chu-git-quan-ly-tot-ma-ngu)
