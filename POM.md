@@ -113,62 +113,78 @@ test("Đăng nhập GitHub thất bại", async ({ page }) => {
   await expect(page.locator("#js-flash-container")).toBeVisible()
 })
 ```
+
 ## 5. QUẢN LÝ BIẾN MÔI TRƯỜNG AN TOÀN
+
 Tạo `.env` (dùng thật):
 
 ```dotenv
 GITHUB_EMAIL=your-email@example.com
 GITHUB_PASSWORD=your-password
 ```
+
 Thêm vào `.gitignore`:
+
 ```bash
 .env
 ```
 
 Tạo `.env.example` để chia sẻ mẫu:
+
 ```dotenv
 GITHUB_EMAIL=
 GITHUB_PASSWORD=
 ```
+
 Load vào code:
+
 ```js
-require('dotenv').config();
+require("dotenv").config()
 ```
 
 ## 6. CHẠY TEST
+
 🔹 Chạy toàn bộ:
+
 ```bash
 npx playwright test
 ```
 
 🔹 Chạy 1 file:
+
 ```bash
-npx playwright test Tests/login.spec.js
+npx playwright test tests/login.spec.js
 ```
 
 🔹 Chạy 1 test case theo tên:
+
 ```bash
 npx playwright test -g "Đăng nhập GitHub thất bại"
 ```
+
 🔹 Chạy với UI:
+
 ```bash
 npx playwright test --ui
 ```
 
 🔹 Xem HTML Report:
+
 ```bash
 npx playwright show-report
 ```
+
 ## 7. TIPS KHI LÀM POM
+
 - Mỗi file trong Page/ đại diện 1 màn hình chính (login, dashboard…)
 - Không xử lý logic test trong page, chỉ định nghĩa thao tác và element
 - Dùng Helper để viết các action phổ biến (login nhanh, logout, tạo user…)
 - Tách constants và translation để dễ bảo trì
 
 ## 8. TÀI LIỆU THÊM
-[Playwright Docs]()
 
-[Playwright GitHub]()
+[Playwright Docs](https://playwright.dev/)
 
-[Playwright Test Configuration]()
+[Playwright GitHub](https://github.com/microsoft/playwright)
 
+[Playwright Test Configuration](https://playwright.dev/docs/test-configuration)
